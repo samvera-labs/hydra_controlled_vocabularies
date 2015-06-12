@@ -10,7 +10,6 @@ class TestAppGenerator < Rails::Generators::Base
   def add_gems
     gem 'blacklight'
     gem 'hydra-head'
-    gem 'hydra-editor'
     Bundler.with_clean_env do
       run "bundle install"
     end
@@ -46,8 +45,12 @@ class TestAppGenerator < Rails::Generators::Base
 
   end
 
+  def bundle
+    run "bundle install"
+  end
+
   def install_engine
-    generate 'hydra_controlled_vocabularies:install'
+    #generate 'hydra_controlled_vocabularies:install'
   end
 end
 
